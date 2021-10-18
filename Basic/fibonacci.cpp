@@ -101,6 +101,14 @@ return 0;
 }
 void testCase()
 {
-    cout<<required(20);
+    char* input1;
+    cin>>input1;
+    int n =  strlen(input1);
+    long long int sum = 0;
+    for(int i = 0; i < n; i++){
+       sum += fibonacci(input1[i] - 'A');
+    }
+    cout<<sum;
+    
     
 }

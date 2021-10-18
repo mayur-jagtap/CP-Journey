@@ -4,6 +4,64 @@
 #define negmod(a) (a%mod + mod) % mod 
 using namespace std;
 
+
+int right_search(vector<int> A, int num)
+{
+    
+    int low = 0, high = A.size() - 1;
+    int ans = high;
+ 
+    while (low <= high)
+    {
+ 
+        int mid = low + (high - low) / 2;
+        
+        if (A[mid] <= num)
+        {
+ 
+            ans = mid;
+ 
+    
+            low = mid + 1;
+        }
+        else
+        {
+ 
+      
+            high = mid - 1;
+        }
+    }
+ 
+    return ans;
+}
+
+int left_search(vector<int> A, int num)
+{
+    
+    int low = 0, high = A.size() - 1;
+    int ans = 0;
+ 
+    while (low <= high)
+    {
+ 
+       
+        int mid = low + (high - low) / 2;
+ 
+     
+        if (A[mid] >= num)
+        {
+ 
+            ans = mid;
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return ans;
+}
+
 void testCase();
 
 int main()
@@ -30,20 +88,69 @@ return 0;
 }
 void testCase()
 {
-	int arr[6];
-	int n = 6;
-	if(n==1){
-		cout<<"0";
+	int N,M;
+	cin>>N>>M;
+	vector<vector<int> > A(N,vector<int>(M));
+	for(int i = 0; i < n; i++){
+		for(int j = 0; j < m; j++){
+				cin>>A[i][j];
+			}	
 	}
-	if(arr[0] >= arr[1]){
-		cout<<"0";
+	int Q;
+	cin>>Q;
+	int S;
+	cin>>S;
+	vector<vector<long long> > Queries(Q,vector<long long>(2));
+	for(int i = 0; i < Q; i++){
+		for(int j = 0; j < 2; j++){
+				cin>>Queries[i][j];
+			}	
 	}
-	if(arr[n-1] >= arr[n-2]){
-		cout<<n-1;
-	}
-	for(int i = 1; i < n; i++){
-		if(arr[i] >= arr[i-1] && arr[i] >= arr[i+1]){
-			cout<<i;
-		}
-	}
-} 
+	
+
+	vector<int> row_sum(N);
+ 
+    
+    vector<int> col_sum(N);
+ 
+  
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+ 
+            row_sum[i] += A[i][j];
+            col_sum[j] += A[i][j];
+        }
+    }
+ 
+    vector<int> sum_list;
+ 
+    
+    for (int i = 0; i < N; i++)
+        sum_list.push_back(row_sum[i]);
+ 
+    
+    for (int i = 0; i < M; i++)
+        sum_list.push_back(col_sum[i]);
+ 
+ 
+    sort(sum_list.begin(), sum_list.end());
+
+    for (int i = 0; i < Q; i++)
+    {
+        int L = Queries[i][0];
+        int R = Queries[i][1];
+ 
+        
+        int l = left_search(sum_list, L);
+ 
+        int r = right_search(sum_list, R);
+ 
+        cout << r - l + 1 << " ";
+    }
+}
+	
+
+
+

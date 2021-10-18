@@ -1,3 +1,3 @@
-#Competitive Programming Practice
+# Competitive Programming Practice
 
-\*CP Questions for Practice.
+- CP Questions for Practice.

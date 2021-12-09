@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long int
+#define printn(x) cout<<x<<"\n"
 #define mod 1000000007
-
 #define negmod(a) (a%mod + mod) % mod 
 using namespace std;
 
@@ -23,7 +23,7 @@ cin>>t;
 
 while(t--)
 {
-    testCase();
+	testCase();
 }
 
 cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
@@ -31,7 +31,13 @@ return 0;
 }
 void testCase()
 {
-      int a=1;
-      int x = a++;
-      cout<<x;
+	int n,m;
+	cin>>n;
+	cin>>m;
+	string s[n];
+	for(int i = 0; i < ; i++){
+		cin>>s[i];
+	}
+	
+
 }

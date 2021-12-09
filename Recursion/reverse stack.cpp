@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long int
+#define printn(x) cout<<x<<"\n"
 #define mod 1000000007
-
 #define negmod(a) (a%mod + mod) % mod 
 using namespace std;
 
@@ -23,15 +23,32 @@ cin>>t;
 
 while(t--)
 {
-    testCase();
+	testCase();
 }
 
 cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
 return 0;
 }
+
+void insert(stack<int> &s,int temp){
+	if(s.size() == 0){
+		s.push(temp);
+		return;
+	}
+	int ele = s.top();
+	s.pop();
+	insert(s);
+}
+void solve(stack<int> &s){
+	if(s.size() == 1){
+		return;
+	}
+	int temp = s.top();
+	s.pop();
+	solve(s);
+	insert(s,temp);
+}
 void testCase()
 {
-      int a=1;
-      int x = a++;
-      cout<<x;
+	solve(stack);
 }

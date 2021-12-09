@@ -38,15 +38,7 @@ int findMin(vector<int>& a) {
         return start;
  }
 
-// int minFind(vector<int>& a){
-// 	int end = a.size() -1,start = 0; mid;
-// 	while(start <= end){
-// 		mid = start + (end - start)/2;
-// 		if(a[mid] < a[end]){
-// 			end = mid;
-// 		}
-// 	}
-// }
+
 
 int binary_search(vector<int> &a,int start,int end,int target){
     if(start <= end){

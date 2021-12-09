@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long int
+#define printn(x) cout<<x<<"\n"
 #define mod 1000000007
-
 #define negmod(a) (a%mod + mod) % mod 
 using namespace std;
 
@@ -18,12 +18,12 @@ freopen("error.txt", "w", stderr);
 freopen("output.txt", "w", stdout);
 #endif
 
-int t;
-cin>>t;
+int t=1;
+
 
 while(t--)
 {
-    testCase();
+	testCase();
 }
 
 cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
@@ -31,7 +31,20 @@ return 0;
 }
 void testCase()
 {
-      int a=1;
-      int x = a++;
-      cout<<x;
+	int n;
+	cin>>n;
+	string s[n];
+	for(int i = 0; i < n; i++){
+		cin>>s[i];	
+	}
+
+	for(int i = 0; i < n; i++){
+		if(s[i].size() <= 10){
+			cout<<s[i]<<endl;
+		}else{
+			int len = s[i].size();
+			cout<<s[i][0]<<len-2<<s[i][len-1]<<endl;
+		}
+
+	}
 }

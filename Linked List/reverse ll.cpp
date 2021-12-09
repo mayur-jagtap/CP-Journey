@@ -52,6 +52,16 @@ void rverese_linkedList(){
 	first = prev;
 }
 
+ListNode* reverseList(ListNode* head) {
+    if(!head or !head->next){
+            return head;
+    }
+    ListNode* reversehead = reverseList(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return reversehead;
+}
+
 int main() {
 	insert_node(1);
 	insert_node(2);

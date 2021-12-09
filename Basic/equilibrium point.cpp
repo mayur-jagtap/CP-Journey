@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long int
+#define printn(x) cout<<x<<"\n"
 #define mod 1000000007
-
 #define negmod(a) (a%mod + mod) % mod 
 using namespace std;
 
@@ -23,7 +23,7 @@ cin>>t;
 
 while(t--)
 {
-    testCase();
+	testCase();
 }
 
 cerr<<"time taken : "<<(float)clock()/CLOCKS_PER_SEC<<" secs"<<endl;
@@ -31,7 +31,21 @@ return 0;
 }
 void testCase()
 {
-      int a=1;
-      int x = a++;
-      cout<<x;
+	int arr[5] = {6,2,-11,13,4};
+	int sum = 0;
+	int n=5,equilibirium_point=-1;
+    int leftsum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+ 
+    for (int i = 0; i < n; i++) {
+        sum -= arr[i];
+        if(leftsum == sum){
+            equilibirium_point = i;
+            break;
+        }
+        leftsum += arr[i];
+    }
+    cout << equilibirium_point;
 }
